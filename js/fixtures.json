@@ -1,0 +1,64 @@
+{
+    "id":4, "versionNumber":4, "beneficiaryAccount":{
+    "id":3799,
+    "deactivatedAt":null,
+    "accountIdentification":"NL49BKMG0261026186",
+    "currencyCode":"EUR",
+    "accountName":"AN3799",
+    "accountShortName":"ASN3799",
+    "companyID":361,
+    "bank":{
+        "id":11557,
+        "deactivatedAt":null,
+        "bclCode":"BKMGNL2A",
+        "branchCode":"XXX",
+        "institutionName":"BANK MENDES GANS N.V.",
+        "location":"AMSTERDAM",
+        "country":"NETHERLANDS",
+        "isoCountryCode":"NL"
+    },
+    "accountPurpose":"RP",
+    "referenceCompany":{
+        "id":361,
+        "deactivatedAt":null,
+        "companyName":"CN361",
+        "companyShortName":"CSN361",
+        "internalCode1":null,
+        "globalCompanyID":"14600",
+        "nameAddress1":null,
+        "nameAddress2":null,
+        "nameAddress3":null,
+        "nameAddress4":null
+    },
+    "bmgAccount":true
+},
+    "beneficiaryAccountIdentification":"NL49BKMG0261026186",
+    "beneficiaryAccountName":"AN3799",
+    "currencyCode":"EUR", "bmgCorrespondentBankName":null,
+    "orderingCustomerName1":"OCN4",
+    "orderingCustomerName2":"jhff",
+    "orderingCustomerName3":null,
+    "orderingCustomerName4":null,
+    "customerReference":null,
+    "orderingBankName1":null,
+    "orderingBankName2":null,
+    "orderingBankName3":null,
+    "orderingBankName4":null, "originator":null, "orderingBic":null, "bmgCorrespondentBic":"BKMGNL2AXXX", "changedAt":1352976972360, "changedBy":"10", "bank":{
+    "id":11557,
+    "deactivatedAt":null,
+    "bclCode":"BKMGNL2A",
+    "branchCode":"XXX",
+    "institutionName":"BANK MENDES GANS N.V.",
+    "location":"AMSTERDAM",
+    "country":"NETHERLANDS",
+    "isoCountryCode":"NL"
+},
+    "alias":"B", "history":[
+    {
+        "id":2000000005,
+        "action":"ED",
+        "changedBy":"10",
+        "changedAt":1352976972360
+    }
+]
+}
