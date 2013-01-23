@@ -17,10 +17,22 @@
 </head>
 <body>
 
-<div data-bind="text: hello"></div>
+<button data-bind="click: reject">Reject</button>
+<button data-bind="click: del">Delete</button>
+
+
+<div data-bind="confirmation: confirmation">
+    <p>Name: <span data-bind="text: confirmation().name"></span></p>
+    <p>Action: <span data-bind="text: confirmation().action"></span></p>
+    <button id="yes" data-bind="click: confirmation().yes">Yes</button>
+    <button id="no" data-bind="click: confirmation().no">No</button>
+</div>
+
 
 <script type="text/javascript">
     ko.applyBindings(new ViewModel());
 </script>
+
+
 </body>
 </html>

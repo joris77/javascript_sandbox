@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.9.1.custom.css"/>
+
+    <style>
+            /*----- Form errors -----*/
+        form .elements-wrapper .element.has-errors input[type=text],
+        form .elements-wrapper .element.has-errors .extra-label,
+        form .elements-wrapper .element.has-errors .select-replacement,
+        form .elements-wrapper .element.has-errors .select-replacement ul {
+            border-color: rgb(155,0,76);
+            border-width: 2px;
+        }
+
+        form .elements-wrapper .element.has-errors input[type=text],
+        form .elements-wrapper .element.has-errors .select-replacement,
+        form .elements-wrapper .element.has-errors .select-replacement ul {
+            border-bottom-right-radius: 4px;
+        }
+
+        form .elements-wrapper .element.has-errors .select-replacement .hook {
+            border-color: rgb(155,0,76);
+        }
+
+        form .elements-wrapper .element.has-errors .select-replacement {
+            width: 245px;
+        }
+        form .elements-wrapper .element.has-errors .extra-label {
+            border-right: none;
+        }
+        form .elements-wrapper .element.has-errors input.has-extra-label[type=text] {
+            width: 116px;
+        }
+        form .elements-wrapper .element.has-errors .extra-label {
+            padding-left: 4px;
+        }
+        form .elements-wrapper .element.has-errors .extra-label,
+        form .elements-wrapper .element.has-errors .select-replacement {
+            height: 21px;
+            line-height: 23px;
+        }
+        form .elements-wrapper .element.has-errors input[type=text] {
+            height: 17px;
+        }
+        form .elements-wrapper .element .error-message
+        {
+            position: absolute;
+            z-index: 200;
+            top: 17px;
+            width: 160px;
+            display: none;
+        }
+        form .elements-wrapper .element:hover .error-message {
+            display: block;
+        }
+        form .elements-wrapper .element .error-message .body {
+            background: rgb(255,255,255);
+            border: 1px solid rgb(155,0,76);
+            color: rgb(155,0,76);
+            border-bottom-right-radius: 3px;
+            padding: 10px;
+            width: 130px;
+            margin-left: 8px;
+        }
+        form .elements-wrapper .element .error-message .body span {
+            display: block;
+            margin-bottom: 3px;
+        }
+        form .elements-wrapper .element .error-message .body span.message {
+            font-weight: bold;
+        }
+        form .elements-wrapper .element .error-message .body span.info {
+            margin: 0;
+        }
+        form .elements-wrapper .element .error-message .pointer {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 8px;
+            height: 15px;
+            background: url(image/error-pointer.png) no-repeat left top;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="../lib/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="../lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+    <script type="text/javascript" src="../lib/jquery/jquery-1.8.2.js"></script>
+
+    <script type="text/javascript" src="../lib/jquery/jquery-ui-1.9.1.custom.js"></script>
+
+    <script type="text/javascript" src="../lib/knockout/knockout-2.2.0.js"></script>
+
+    <script type="text/javascript" src="code.js"></script>
+
+</head>
+<body>
+
+<div>
+    <label for="bla">Blablabls</label>
+    <input name="bla" id="bla" data-bind="errors: valueDateFrom.errors()"/>
+
+</div>
+
+ <br/>
+<button data-bind="click: addError">Add</button>
+<button data-bind="click: removeError">Remove</button>
+
+<script type="text/javascript">
+    ko.applyBindings(new ViewModel());
+</script>
+</body>
+</html>

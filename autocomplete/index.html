@@ -1,17 +1,71 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui-1.9.1.custom.css"/>
+
+    <script type="text/javascript" src="../lib/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="../lib/jasmine-1.2.0/jasmine-html.js"></script>
+
     <script type="text/javascript" src="../lib/jquery/jquery-1.8.2.js"></script>
+
+    <script type="text/javascript" src="../lib/jquery/jquery-ui-1.9.1.custom.js"></script>
 
     <script type="text/javascript" src="../lib/knockout/knockout-2.2.0.js"></script>
 
+    <script type="text/javascript" src="autocomplete.js"></script>
+
     <!-- include source files here... -->
-    <script type="text/javascript" src="code.js"></script>
+
 </head>
 <body>
-    <div class="hook"></div>
-    <input id="bank" type="text">Bank</input>
+<input data-bind="jqAuto: { autoFocus: true, columns: bankColumns, source: banks }, jqAutoValue: bank, jqAutoSourceInputValue: 'code'"/>
 
-    <div class="hook"></div>
-    <input id="account" type="text">Account</input>
+<input data-bind="value: account">
+<hr/>
+
+<div data-bind="text: bank() ? bank().displayName : 'None selected'"></div>
+
+
+<script type="text/javascript">
+
+    var Bank = {
+        search:function (data, success, error) {
+            console.log(data.account);
+            jasmine.setTimeout(function () {
+                if (data.term === 'a') {
+                    success([
+                        {id:1, code:"abn", displayName:"Abn Amro"}
+                    ]);
+                } else if (data.term === 'r') {
+                    success([
+                        {id:2, code:"rabo", displayName:"Rabobank"}
+                    ]);
+                } else {
+                    success([]);
+                }
+            }, 100);
+        }
+    }
+
+    function ViewModel() {
+        var self = this;
+
+        this.bankColumns = [
+            {header:'Id', width:'100px', value:'id'},
+            {header:'Code', width:'100px', value:'code'},
+            {header:'Name', width:'100px', value:'displayName'}
+        ]
+
+        this.banks = function (request, response) {
+            Bank.search({term:request.term, account:self.account()}, response);
+        }
+
+        this.bank = ko.observable();
+
+        this.account = ko.observable("123")
+    }
+
+    ko.applyBindings(new ViewModel());
+</script>
 </body>
 </html>
